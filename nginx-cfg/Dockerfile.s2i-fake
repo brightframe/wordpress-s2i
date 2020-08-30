@@ -1,0 +1,27 @@
+FROM quay.io/cuppett/fedora-s2i-php-nginx:latest
+
+ENV NGINX_DEFAULT_EXPIRES="modified +24h"
+
+USER root
+
+# Copying in source code
+
+COPY .. /tmp/src
+
+# Change file ownership to the assemble user.
+
+RUN chown -R 1001:0 /tmp/src
+
+# Run assemble as non-root user
+
+USER 1001
+
+# Assemble script sourced from builder image based on user input or image metadata.
+
+RUN /usr/libexec/s2i/assemble
+#RUN /tmp/src/.s2i/bin/assemble
+
+# Run script sourced from builder image based on user input or image metadata.
+
+CMD /usr/libexec/s2i/run
+#CMD /opt/app-root/src/.s2i/bin/run

@@ -1,0 +1,30 @@
+FROM quay.io/cuppett/fedora-s2i-php-fpm:latest
+
+ENV PHP_MEMORY_LIMIT="512M"
+ENV PHP_OPCACHE_REVALIDATE_FREQ="1"
+ENV WORDPRESS_VERSION="5.5"
+ENV WORDPRESS_SHA1="03fe1a139b3cd987cc588ba95fab2460cba2a89e"
+
+USER root
+
+# Copying in source code
+
+COPY .. /tmp/src
+
+# Change file ownership to the assemble user.
+
+RUN chown -R 1001:0 /tmp/src
+
+# Run assemble as non-root user
+
+USER 1001
+
+# Assemble script sourced from builder image based on user input or image metadata.
+
+#RUN /usr/libexec/s2i/assemble
+RUN /tmp/src/.s2i/bin/assemble
+
+# Run script sourced from builder image based on user input or image metadata.
+
+#CMD /usr/libexec/s2i/run
+CMD /opt/app-root/src/.s2i/bin/run

@@ -1,0 +1,4 @@
+.dockerignore
+.s2iignore
+Dockerfile*
+README.md

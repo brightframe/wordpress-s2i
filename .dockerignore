@@ -1,0 +1,8 @@
+.dockerignore
+.git
+.idea
+.s2iignore
+Dockerfile*
+LICENSE
+README.md
+nginx-cfg
