@@ -9,7 +9,7 @@ USER root
 
 # Copying in source code
 
-COPY .. /tmp/src
+COPY . /tmp/src
 
 # Change file ownership to the assemble user.
 
