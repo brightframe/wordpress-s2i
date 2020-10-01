@@ -1,5 +1,7 @@
 FROM quay.io/cuppett/fedora-s2i-php-nginx:latest
 
+ENV NGINX_FASTCGI_READ_TIMEOUT="180"
+ENV NGINX_CLIENT_MAX_BODY_SIZE="64m"
 ENV NGINX_DEFAULT_EXPIRES="modified +24h"
 
 USER root
