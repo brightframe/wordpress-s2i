@@ -14,6 +14,8 @@ COPY . /tmp/src
 # Change file ownership to the assemble user.
 
 RUN chown -R 1001:0 /tmp/src
+RUN mkdir -p /tmp/scripts
+RUN mv /tmp/src/.s2i/bin/* /tmp/scripts
 
 # Run assemble as non-root user
 
@@ -21,10 +23,8 @@ USER 1001
 
 # Assemble script sourced from builder image based on user input or image metadata.
 
-#RUN /usr/libexec/s2i/assemble
-RUN /tmp/src/.s2i/bin/assemble
+RUN /tmp/scripts/assemble
 
 # Run script sourced from builder image based on user input or image metadata.
 
-#CMD /usr/libexec/s2i/run
-CMD /opt/app-root/src/.s2i/bin/run
+CMD /tmp/scripts/run

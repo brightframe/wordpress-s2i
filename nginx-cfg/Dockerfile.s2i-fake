@@ -21,9 +21,7 @@ USER 1001
 # Assemble script sourced from builder image based on user input or image metadata.
 
 RUN /usr/libexec/s2i/assemble
-#RUN /tmp/src/.s2i/bin/assemble
 
 # Run script sourced from builder image based on user input or image metadata.
 
 CMD /usr/libexec/s2i/run
-#CMD /opt/app-root/src/.s2i/bin/run
