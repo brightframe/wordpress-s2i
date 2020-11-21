@@ -1,9 +1,9 @@
 FROM quay.io/cuppett/ubi8-php73:latest
 
-ENV PHP_MEMORY_LIMIT="512M"
-ENV OPCACHE_REVALIDATE_FREQ="1"
-ENV WORDPRESS_VERSION="5.5.3"
-ENV WORDPRESS_SHA1="61015720c679a6cbf9ad51701f0f3fedb51b3273"
+ENV PHP_MEMORY_LIMIT="512M" \
+    OPCACHE_REVALIDATE_FREQ="1" \
+    WORDPRESS_VERSION="5.5.3" \
+    WORDPRESS_SHA1="61015720c679a6cbf9ad51701f0f3fedb51b3273"
 
 USER root
 
@@ -13,9 +13,10 @@ COPY . /tmp/src
 
 # Change file ownership to the assemble user.
 
-RUN chown -R 1001:0 /tmp/src
-RUN mkdir -p /tmp/scripts
-RUN mv /tmp/src/.s2i/bin/* /tmp/scripts
+RUN set -ex; \
+    chown -R 1001:0 /tmp/src; \
+    mkdir -p /tmp/scripts; \
+    mv /tmp/src/.s2i/bin/* /tmp/scripts
 
 # Run assemble as non-root user
 
