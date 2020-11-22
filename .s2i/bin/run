@@ -227,6 +227,6 @@ for e in "${envs[@]}"; do
     unset "$e"
 done
 
-fix-permissions /var/www
+#fix-permissions /var/www
 
 source ${STI_SCRIPTS_PATH}/run
