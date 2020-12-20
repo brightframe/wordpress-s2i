@@ -1,9 +1,9 @@
-FROM quay.io/cuppett/ubi8-php73:latest
+FROM quay.io/cuppett/ubi8-php:74
 
 ENV PHP_MEMORY_LIMIT="512M" \
     OPCACHE_REVALIDATE_FREQ="1" \
-    WORDPRESS_VERSION="5.5.3" \
-    WORDPRESS_SHA1="61015720c679a6cbf9ad51701f0f3fedb51b3273"
+    WORDPRESS_VERSION="5.6" \
+    WORDPRESS_SHA1="db8b75bfc9de27490434b365c12fd805ca6784ce"
 
 USER root
 
