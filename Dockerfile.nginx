@@ -1,4 +1,4 @@
-FROM quay.io/cuppett/fedora-s2i-php-nginx:latest
+FROM quay.io/cuppett/fedora-s2i-php:33-nginx
 
 ENV NGINX_FASTCGI_READ_TIMEOUT="180" \
     NGINX_CLIENT_MAX_BODY_SIZE="64m" \
