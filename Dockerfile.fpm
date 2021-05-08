@@ -1,4 +1,4 @@
-FROM quay.io/cuppett/fedora-s2i-php:33-fpm
+FROM quay.io/cuppett/fedora-s2i-php:34-fpm
 
 ENV PHP_MAX_EXECUTION_TIME="180" \
     PHP_MAX_INPUT_VARS="3000" \
