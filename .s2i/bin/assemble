@@ -4,7 +4,7 @@ set -e
 
 source ${STI_SCRIPTS_PATH}/assemble
 
-curl -o wordpress.tar.gz -fSL "https://build-binaries-us-east-2-072298089782.s3.us-east-2.amazonaws.com/wordpress/wordpress-${WORDPRESS_VERSION}.tar.gz"
+curl -o wordpress.tar.gz -fSL "https://wordpress.org/latest.tar.gz"
 
 tar -xzf wordpress.tar.gz  --strip-components=1
 rm wordpress.tar.gz
