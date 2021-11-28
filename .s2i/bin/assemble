@@ -2,7 +2,7 @@
 
 set -e
 
-source ${STI_SCRIPTS_PATH}/assemble
+source "${STI_SCRIPTS_PATH}/assemble"
 
 curl -o wordpress.tar.gz -fSL "https://wordpress.org/latest.tar.gz"
 
